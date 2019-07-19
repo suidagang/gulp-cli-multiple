@@ -98,7 +98,7 @@ gulp.task('dev', ['clean'],function(){
                 'less','webserver','watch',
                 'fileinclude']);
 });
-gulp.task('default', ['dev']);
+gulp.task('start', ['dev']);
 //***********************************************************************
 // gulp product 压缩css/js/图片等文件，进行减少文件大小，但也会大大减弱文件可读性
 //编译压缩less
@@ -149,4 +149,9 @@ gulp.task('product', ['compress']);
 gulp.task('compress', ['clean'],function(){//压缩了css/js/图片
     gulp.start(['fileinclude','image_min','less_min',
                 'js_min','webserver','watch_min']);
+});  
+gulp.task('build', ['buildProduct']);
+gulp.task('buildProduct', ['clean'],function(){//压缩了css/js/图片
+    gulp.start(['fileinclude','image_min','less_min',
+                'js_min']);
 });  
